@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String createTable = "CREATE TABLE versions (ID INTEGER PRIMARY KEY AUTO, codeName TEXT, verNos TEXT, relDate TEXT, apiLevel TEXT)";
+        String createTable = "CREATE TABLE versions (ID INTEGER PRIMARY KEY AUTOINCREMENT, codeName TEXT, verNos TEXT, relDate TEXT, apiLevel TEXT)";
         db.execSQL(createTable); //executes the statement
         //this.getWritableDatabase();
     }
@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.insert(tableName,null, cv);
     }
 
-    public Cursor getTable (String id){
+    public Cursor getTable (){
         SQLiteDatabase db = this.getWritableDatabase();
         String selectAll = "SELECT * FROM versions";
         return db.rawQuery(selectAll,null);
